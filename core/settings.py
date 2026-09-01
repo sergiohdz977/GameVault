@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'django_filters',
     'drf_spectacular',
-    'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
