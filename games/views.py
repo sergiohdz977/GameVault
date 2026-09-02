@@ -13,11 +13,26 @@ from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 from .permissions import IsOwnerOrReadOnly
+from django.http import JsonResponse
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all() 
     permission_classes = [AllowAny]
     serializer_class = UserSerializer
+
+
+def home(request):
+    return JsonResponse({
+        'message': '🎮 Welcome to GameVault API',
+        'version': '1.0.0',
+        'endpoints': {
+            'admin': '/admin/',
+            'api': '/api/',
+            'reviews': '/api/reviews/',
+            'documentation': '/api/docs/',
+        },
+        'status': '✅ API is running successfully'
+    })
 
 
 
